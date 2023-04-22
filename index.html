@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Determinant</title>
+    <link rel="stylesheet" href="determinant.css">
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+    <div class="flex1">
+        <main id ="main">
+            <h1>Calcul de déterminant d'une matrice carrée :</h1>
+            <h2>Qu'est-ce qu'une matrice et un déterminant ?</h2>
+            <p class="nocenter">Une matrice est un tableau de nombre, la dimension d'une matrice défini le nombre de lignes et le nombre de colonne.</p>
+            <p class="nocenter">Ainsi une matrice de taille 3x2 sera une matrice de trois lignes et deux colonnes (exemple ci-dessous).</p>
+            <span class="math">\(A=\begin{pmatrix}
+                1 & 2 & 3\\
+                4 & 5 & 6
+                \end{pmatrix}\)</span>
+            <p class="nocenter">Les éléments d'une matrice sont définis par deux indices, le premier pour définir la ligne et le second pour la colonne.
+                <br> Une matrice carrée est une matrice qui a le même nombre de colonnes que de lignes (ci dessous une matrice 3x3).
+                <br> Le déterminant d'une matrice est noté avec des barres verticales et ne s'effectue que sur une matrice carrée.</p>
+            <div class="space">
+                <p class="math inline">\(A=\begin{pmatrix}
+                    a_{11} & a_{12} & a_{13}\\
+                    a_{21} & a_{22} & a_{23}\\
+                    a_{31} & a_{32} & a_{33}
+                    \end{pmatrix}\)</p>
+                <p class="math inline">\(det(A)=\begin{vmatrix}
+                    a_{11} & a_{12} & a_{13}\\
+                    a_{21} & a_{22} & a_{23}\\
+                    a_{31} & a_{32} & a_{33}
+                    \end{vmatrix}\)</p>
+            </div>
+            <p class="nocenter">Un déterminant est un nombre réel calculé à partir d'une matrice carrée remplie de nombre réels.</p>
+            <h3>À quoi sert un déterminant ?</h3>
+            <p class="nocenter">En mathématiques, le déterminant est une valeur qu'on peut associer aux matrices ou aux applications linéaires en dimension finie. Sur les exemples les plus simples, ceux de la géométrie euclidienne en dimension 2 ou 3, il s'interprète en termes d'aires ou de volumes, et son signe est relié à la notion d'orientation.</p>
+            <p class="nocenter">Il existe également pleins d'autres applications, comme la résolution de système d'équations linéaires. Différents calculs sur les epsaces vectoriels et les bases de ceux-ci. Mais ce sujet ne sera pas abordé ici.</p>
+            <h3>Comment calculer un déterminant ?</h3>
+            <p class="nocenter">Dans un plan euclidien, on peut calculer l'air d'un parallélogramme défini par deux vecteurs X et X' d'origine nulle, en calculant le déterminant de la matrice donnée par les coordonnées des deux vercteurs.</p>
+            <div class="space">
+                <span class="math center-v">\(det(X,X')=\begin{vmatrix}
+                    x & x' \\
+                    y & y'
+                    \end{vmatrix} = xy' - yx'\)
+                </span>
+                <img src="./Determinant_de_vecteur_dim_2.svg.png" width="200">
+            </div>
+            <p class="nocenter">On peut faire de même dans l'espace avec trois vecteurs et une matrice 3x3.
+                <br> On aura donc trois vecteurs X, Y et Z et le déterminant calculé comme ceci :
+            </p>
+            <p class="math">\(det(X, Y, Z)=\begin{vmatrix}
+                x & x' & x"\\
+                y & y' & y"\\
+                z & z' & z"
+                \end{vmatrix} = x\begin{vmatrix}
+                y' & y" \\
+                z' & z"
+                \end{vmatrix} - y\begin{vmatrix}
+                x' & x" \\
+                z' & z"
+                \end{vmatrix} + z\begin{vmatrix}
+                x' & x" \\
+                y' & y"
+                \end{vmatrix}\)</p>
+            <p class="math">\(= x.(y'z" - y"z') - y.(x'z" - x"z') + z.(x'y" - x"y')\)</p>
+            <p class="math">\(= xy'z" + x'y"z + x"yz' - xy"z' - x'yz" - x"y'z\)</p>
+            <p class="nocenter">On peut réécrire la même matrice avec des lettres allant de a jusqu'à i, si cela est plus compréhensible, ce sont juste deux écritures différentes.</p>
+            <p class="math">\(\begin{vmatrix}
+                a & b & c\\
+                d & e & f\\
+                g & h & i
+                \end{vmatrix} = x\begin{vmatrix}
+                e & f \\
+                h & i
+                \end{vmatrix} - y\begin{vmatrix}
+                b & c \\
+                h & i
+                \end{vmatrix} + z\begin{vmatrix}
+                b & c \\
+                e & f
+                \end{vmatrix}\)</p>
+            <p class="math">\(= a.(ei - fh) - d.(bc - ch) + g.(bc - ef)\)</p>
+            <p class="nocenter">On peut voir avec l'exemple ci-dessus que pour calculer le déterminant de la matrice 3x3, on a utilisé les éléments de la première colonne (assignés du signe - ou + selon la somme de leur indice), qu'on a multiplié aux déterminants des sous-matrices générées en retirant la ligne et la colonne de du premier facteur.</p>
+            <p class="nocenter">Il se trouve qu'ici on a utilisé la première colonne, mais on peut calculer le déterminant en faisant la même chose peut importe la ligne ou la colonne choisie.</p>
+            <p class="nocenter">Faisons un exemple avec une matrice 4x4 A.
+                <br> rappelons que les signes assignés aux éléments d'une matrice 4x4 sont :</p>
+            <div class="space">
+                <p class="math">\(\begin{pmatrix}
+                    + & - & + & - \\
+                    - & + & - & + \\
+                    + & - & + & - \\
+                    - & + & - & + 
+                    \end{pmatrix}\)
+                </p>
+                <p class="math">\(A = \begin{pmatrix}
+                    2 & 4 & 5 & 6 \\
+                    -1 & 5 & 6 & 9 \\
+                    3 & 7 & 1 & -6 \\
+                    4 & -2 & 3 & 5 
+                    \end{pmatrix}\)</p>
+            </div>
+            <p class="nocenter">Calculons le déterminant de cette matrice à partir de la deuxième colonne.</p>
+            <p class="nocenter">Avant cela prenons tous les mineurs des éléments composants la deuxième colonne.</p>
+            <p class="math">\(\begin{pmatrix}
+                \require{cancel}\cancel{2} & \require{cancel}\cancel{3} & \require{cancel}\cancel{5} & \require{cancel}\cancel{6} \\
+                -1 & \require{cancel}\cancel{5} & 6 & 9 \\
+                3 & \require{cancel}\cancel{7} & 1 & -6 \\
+                4 & \require{cancel}\cancel{-2} & 3 & 5 
+                \end{pmatrix} => \begin{pmatrix}
+                -1 & 6 & 9 \\
+                3 & 1 & -6 \\
+                4 & 3 & 5 
+                \end{pmatrix}\)</p>
+            <p class="math">\(\begin{pmatrix}
+                2 & \require{cancel}\cancel{4} & 5 & 6 \\
+                \require{cancel}\cancel{-1} & \require{cancel}\cancel{5} & \require{cancel}\cancel{6} & \require{cancel}\cancel{9} \\
+                3 & \require{cancel}\cancel{7} & 1 & -6 \\
+                4 & \require{cancel}\cancel{-2} & 3 & 5 
+                \end{pmatrix} => \begin{pmatrix}
+                2 & 5 & 6 \\
+                3 & 1 & -6 \\
+                4 & 3 & 5 
+                \end{pmatrix}\)</p>
+            <p class="math">\(\begin{pmatrix}
+                2 & \require{cancel}\cancel{4} & 5 & 6 \\
+                -1 & \require{cancel}\cancel{5} & 6 & 9 \\
+                \require{cancel}\cancel{3} & \require{cancel}\cancel{7} & \require{cancel}\cancel{1} & \require{cancel}\cancel{-6} \\
+                4 & \require{cancel}\cancel{-2} & 3 & 5 
+                \end{pmatrix} => \begin{pmatrix}
+                2 & 5 & 6 \\
+                -1 & 6 & 9 \\
+                4 & 3 & 5 
+                \end{pmatrix}\)</p>
+            <p class="math">\(\begin{pmatrix}
+                2 & \require{cancel}\cancel{4} & 5 & 6 \\
+                -1 & \require{cancel}\cancel{5} & 6 & 9 \\
+                3 & \require{cancel}\cancel{7} & 1 & -6 \\
+                \require{cancel}\cancel{4} & \require{cancel}\cancel{-2} & \require{cancel}\cancel{3} & \require{cancel}\cancel{5} 
+                \end{pmatrix} => \begin{pmatrix}
+                2 & 5 & 6 \\
+                -1 & 6 & 9 \\
+                3 & 1 & -6 
+                \end{pmatrix}\)</p>
+            <p class="nocenter">Ce qui donne le calcul suivant :</p>
+            <p class="math">\(det(A) = -4.\begin{vmatrix}
+                -1 & 6 & 9 \\
+                3 & 1 & -6 \\
+                4 & 3 & 5 
+                \end{vmatrix} + 5.\begin{vmatrix}
+                2 & 5 & 6 \\
+                3 & 1 & -6 \\
+                4 & 3 & 5 
+                \end{vmatrix} -7.\begin{vmatrix}
+                2 & 5 & 6 \\
+                -1 & 6 & 9 \\
+                4 & 3 & 5 
+                \end{vmatrix} + (-2).\begin{vmatrix}
+                2 & 5 & 6 \\
+                -1 & 6 & 9 \\
+                3 & 1 & -6 
+                \end{vmatrix}\)</p>
+            <p class="nocenter">Comme on connait la façon de calculer le déterminant d'une matrice 3x3, on va s'épargner l'écriture et directement utiliser les résultats.
+                <br>Vous pouvez d'ailleurs les vérifier avec la calculatrice de déterminant ci-contre.
+            </p>
+            <p class="math">\(Det(A) = -4 . (-212) + 5 . (-119) - 7 . 49 -2 . (-99) = 108\)</p>
+        </main>
+        <div id = "calculator">
+            <div id="title-padding">
+                <h2>Calculatrice de déterminant :</h2>
+            </div>
+            <div id="calculator-content">
+                Choisissez la taille de la matrice (entre 1 et 10) :
+                <input id = "n" type="number" min ="1" max = "10">
+                <button type="button" onclick="Create()">Valider</button>
+
+                <div id = "matrice"></div>
+                
+
+                <button id = "calculer" type="button" onclick="Fill_Matrice()">Calculer le déterminant</button>
+                <button id = "vider" type="button" onclick="Empty()">Vider la matrice</button>
+                <button id = "effacer" type="button" onclick="Erase()">Effacer la matrice</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="determinant.js"></script>
+</body>
+</html>

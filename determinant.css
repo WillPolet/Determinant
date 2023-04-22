@@ -1,0 +1,125 @@
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: rgb(241 229 209);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+/* ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0.4); 
+} */
+
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url('livre5.jpg');
+    background-size: cover;
+    background-position: fixed;
+    background-attachment: fixed;
+    background-repeat: none;
+    top: 0;
+    left: 0;
+}
+
+.math{
+    font-size: large;
+}
+
+
+#calculer{
+    display: none;
+}
+
+#vider{
+    display: none;
+}
+
+#effacer{
+    display: none;
+}
+
+body{
+    /* background: linear-gradient(45deg, red, blue); */
+    height: 100vh;
+}
+
+input{
+    width: 60px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.flex1{
+    display: flex;
+}
+
+#main{
+    width: 45%;
+    text-align: center;
+    margin-top: 3%;
+    margin-left: 4%;
+    padding-right: 1%;
+    height: 89vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#calculator{
+    width: 48%;
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    /* display: flex;
+    align-items: center; */
+    height: 75vh;
+    padding-top: 13vh;
+    position: fixed;
+    left: 48vw;
+}
+
+#calculator-content{
+    width: 100%;
+}
+
+#matrice{
+    justify-content: center;
+    display: flex;
+    padding: 1%;
+}
+
+#divDet{
+    padding: 1%;
+}
+
+#title-padding{
+    padding-bottom: 3vh;
+}
+
+.nocenter{
+    text-align: justify;
+}
+
+.inline{
+    display: inline;
+}
+
+.space{
+    display: flex;
+    justify-content: space-around;
+}
+
+.center-v{
+    display: flex;
+    align-items: center;
+}
